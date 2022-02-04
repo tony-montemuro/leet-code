@@ -4,16 +4,17 @@ public:
         //Brute force method
         bool isFound = false;
         std::vector<int> v(2);
-        int i, j;
-        for (i = 0; i < nums.size()-1; i++) {
-            for (j = i+1; j < nums.size(); j++) {
+        int i = 0, j;
+        while (!isFound) {
+            j = i + 1;
+            while (!isFound && j < nums.size()) {
                 if (nums[i] + nums[j] == target) {
                     v[0] = i, v[1] = j;
                     isFound = true;
-                    break;
                 }
+                ++j;
             }
-            if (isFound) break;
+            ++i;
         }
         return v;
     }
